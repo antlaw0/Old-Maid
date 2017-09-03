@@ -1,4 +1,4 @@
-import Card
+import Card2
 
 class Deck(object):
     # """ A deck of playing cards. """
@@ -10,7 +10,7 @@ class Deck(object):
         self.deck = {}
         for suit in Deck.SUITS:
             for rank in Deck.RANKS:
-                card = Card.Card(rank, suit)
+                card = Card2.Card(rank, suit)
                 self.deck[rank + ' ' + suit] = card
 
     # def shuffle(self):

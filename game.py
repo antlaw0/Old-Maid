@@ -1,4 +1,4 @@
-import Card
+import Card2
 import Deck
 import Hand
 import Player
