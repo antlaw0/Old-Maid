@@ -1,11 +1,13 @@
 import Card
+import Deck
+import Hand
 import Player
 
-deck = Card.Deck()
-deck.populate()
-deck.shuffle()
-hHand = Card.Hand()
-cHand = Card.Hand()
+deck = Deck.Deck()
+# deck.populate()
+# deck.shuffle()
+hHand = Hand()
+cHand = Hand()
 deck.deal([hHand, cHand], 20)
 
 human = Player.Player("Human", hHand)
