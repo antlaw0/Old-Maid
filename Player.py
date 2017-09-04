@@ -4,19 +4,13 @@ class Player(object):
 		self.name = name
 		self.hand = hand
 		self.pairs = []
-		
+	
+		#credit to http://www.openbookproject.net/thinkcs/python/english2e/ch17.html
 	def find_pairs(self):
-		a=0
-		b=0
-		for i in self.hand.cards:
-			a=0
-			b=0
-			a+=1
-			for ii in self.hand.cards:
-				b+=1
-				if a != b:
-					if i.rank == ii.rank:
-						self.pairs.append(i)
-						self.hand.cards.remove(i)
-						self.hand.cards.remove(ii)
-						
+		original_cards = self.hand.cards[:]
+		for card in original_cards:
+			match = card
+			if match in self.hand.cards:
+				self.hand.cards.remove(card)
+				self.hand.cards.remove(match)
+				self.pairs.append(card)
