@@ -1,10 +1,10 @@
 class Player(object):
-	
+
 	def __init__(self, name,hand):
 		self.name = name
 		self.hand = hand
 		self.pairs = []
-		
+
 	def find_pairs(self):
 		a=0
 		b=0

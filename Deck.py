@@ -13,24 +13,12 @@ class Deck(object):
                 card = Card2.Card(rank, suit)
                 self.deck[rank + ' ' + suit] = card
 
-    # def shuffle(self):
-    #     # """A method tha shuffle the deck of cards"""
-    #     random.shuffle(self.cards)
-
-    def deal(self): #self, hands, card_per_hand=1):
-        if len(self.deck) > 0:
-            card = self.deck.popitem()
-            return card
-        else:
-            print("No more cards to deal.")
-        # # """A method that deal the cards to the hand. It accepts the list of hand and cards per hand """
-        # for rounds in range(card_per_hand):
-        #     for hand in hands:
-        #         if self.cards:
-        #             top_card = self.cards[0]
-        #             self.give(top_card, hand)
-        #         else:
-        #             print("Can't continue deal. Out of cards!")
-
-
-
+    def deal(self, quantity = 1):
+        while quantity > 0:
+            if len(self.deck) > 0:
+                card = self.deck.popitem()
+                quantity -= 1
+                return card
+            else:
+                print("No more cards to deal.")
+                break
