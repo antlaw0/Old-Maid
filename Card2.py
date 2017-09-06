@@ -1,5 +1,5 @@
 class Card(object):
-    #A playing card
+    # A playing card
     def __init__(self, rank, suits):
         self.rank = rank
         self.suit = suits

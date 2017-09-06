@@ -2,14 +2,17 @@ import Card2
 import Deck
 import Hand
 import Player
+import Computer
 
 def main():
     deck = Deck.Deck()
     print(deck)
-    drawnCard = deck.deal()
+    drawnCard = deck.deal(5)
     print(drawnCard)
-# hHand = Hand()
-# cHand = Hand()
+
+hHand = Hand.Hand()
+cHand = Hand.Hand()
+
 # deck.deal([hHand, cHand], 20)
 #
 # human = Player.Player("Human", hHand)

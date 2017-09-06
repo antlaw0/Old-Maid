@@ -1,9 +1,12 @@
 class Player(object):
 
-    def __init__(self, name,hand):
+    playerCount = 0
+
+    def __init__(self, name, hand):
         self.name = name
         self.hand = hand
         self.pairs = []
+        Player.playerCount += 1
 
     def find_pairs(self):
         for card in self.hand:
