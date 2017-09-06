@@ -1,5 +1,11 @@
 class Player(object):
 	
+	def show_pairs(self):
+		print("Pairs are: ")
+		for i in self.pairs:
+			print(i)
+			
+		
 	def __init__(self, name,hand):
 		self.name = name
 		self.hand = hand
@@ -17,14 +23,20 @@ class Player(object):
 					print(card2)
 					pairs_list.append(card)
 					pairs_list.append(card2)
-					#i=original_cards.index(card)
-					#self.hand.cards.pop(i)
-					#i=original_cards.index(card2)
-					#self.hand.cards.pop(i)
+					self.pairs.append(card)
+					self.pairs.append(card2)
+					
+		
+		
+		
+		
+		i=0
 		for c in self.hand.cards:
+			i=self.hand.cards.index(c)
 			for cc in pairs_list:
 				if c.rank == cc.rank and c.suit == cc.suit:
-					self.hand.cards.remove(c)
+					self.hand.cards.pop(i)
+		
 		"""
 		for card in self.hand.cards:
 			for card2 in self.hand.cards:

@@ -14,13 +14,11 @@ computer = Player.Player("AI", cHand)
 #print(human.hand)
 loop = True
 
-human.find_pairs()
 print("before:")
 print(human.hand)
-
-print("pairs are: "+human.pairs[0].rank)
+human.find_pairs()
 print("after:")
 print(human.hand)
+human.show_pairs()
 
-#while(loop == True):
-	
+
