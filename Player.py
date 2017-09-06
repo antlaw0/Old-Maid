@@ -9,28 +9,24 @@ class Player(object):
         Player.playerCount += 1
 
     def find_pairs(self):
-# TODO fix ValueError from item not there
-        for card in self.hand.cards:
-            for card2 in self.hand.cards:
-                if card != card2:
-                    if card.rank == card2.rank:
-                        pair = [card, card2]
-                        self.pairs.append(pair)
-                        self.hand.cards.remove(card)
-                        self.hand.cards.remove(card2)
-        print(self.pairs)
+        original_cards = self.hand.cards[:]
+        pairs_list = []
+        for card in original_cards:
+            for card2 in original_cards:
+                if card.suit != card2.suit and card.rank == card2.rank:
+                    # pair = [card, card2]
+                    self.pairs.append(card)
+                    self.pairs.append(card2)
+                    pairs_list.append(card)
+                    pairs_list.append(card2)
+                    # self.hand.cards.remove(card)
+                    # self.hand.cards.remove(card2)
 
-                # a=0
-                # b=0
-                # for i in self.hand.cards:
-                # 	a=0
-                # 	b=0
-                # 	a+=1
-                # 	for ii in self.hand.cards:
-                # 		b+=1
-                # 		if a != b:
-                # 			if i.rank == ii.rank:
-                # 				self.pairs.append(i)
-                # 				self.hand.cards.remove(i)
-                # 				self.hand.cards.remove(ii)
-						
+        i = 0
+        for c in self.pairs:
+            for cc in self.hand.cards:
+                i = self.hand.cards.index(cc)
+                if c.rank == cc.rank and c.suit == cc.suit:
+                    self.hand.cards.pop(i)
+
+        print(self.pairs)

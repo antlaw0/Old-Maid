@@ -1,4 +1,4 @@
-import Card2
+import Card
 
 
 class Deck(object):
@@ -12,9 +12,9 @@ class Deck(object):
         self.deck = {}
         for suit in Deck.SUITS:
             for rank in Deck.RANKS:
-                card = Card2.Card(rank, suit)
+                card = Card.Card(rank, suit)
                 self.deck[rank + ' ' + suit] = card
-        oldMaid = Card2.Card("Old", "Maid")
+        oldMaid = Card.Card("Old", "Maid")
         self.deck["Old Maid"] = oldMaid
 
     def deal(self, hand, quantity = 1):

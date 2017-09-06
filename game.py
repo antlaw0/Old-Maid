@@ -1,4 +1,4 @@
-import Card2
+import Card
 import Deck
 import Hand
 import Player
@@ -18,17 +18,10 @@ def main():
     while True:
         for player in allPlayers:
             player.find_pairs()
+
             input()
 
-# human.find_pairs()
-# print("before:")
-# print(human.hand)
-#
-# print("pairs are: "+human.pairs[0].rank)
-# print("after:")
-# print(human.hand)
 
-#while(loop == True):
 
 def makePlayer(playerType, allPlayers):
     hand = Hand.Hand()
