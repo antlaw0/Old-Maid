@@ -6,22 +6,20 @@ import Computer
 
 def main():
     deck = Deck.Deck()
-    print(deck)
+
     # drawnCard = deck.deal(5)
     # print(drawnCard)
     allPlayers = []
 
     allPlayers = makePlayer(1, allPlayers)
     allPlayers = makePlayer(2, allPlayers)
-    dealOutCards(allPlayers, deck)
+    allPlayers = dealOutCards(allPlayers, deck)
 
-# deck.deal([hHand, cHand], 20)
-#
-#
-#
-# #print(computer.hand)
-# #print(human.hand)
-# loop = True
+    while True:
+        for player in allPlayers:
+            player.find_pairs()
+            input()
+
 # human.find_pairs()
 # print("before:")
 # print(human.hand)
@@ -43,8 +41,17 @@ def makePlayer(playerType, allPlayers):
     return allPlayers
 
 def dealOutCards(players, deck):
-    print("deck:" + str(len(deck.deck)) + " players:" + str(len(players)))
-    cardsPerPlayer = int(len(deck.deck) / len(players))
-    print(cardsPerPlayer)
-    extraCards = len(deck.deck) % len(players)
+    deckLen = len(deck.deck)
+    playersLen = len(players)
+    cardsPerPlayer = int(deckLen / playersLen)
+    extraCards = deckLen % playersLen
+
+    for player in players:
+        if extraCards > 0:
+            deck.deal(player.hand, cardsPerPlayer + 1)
+            extraCards -= 1
+        else:
+            deck.deal(player.hand, cardsPerPlayer)
+    return players
+
 main()

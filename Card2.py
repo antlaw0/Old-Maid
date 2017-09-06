@@ -6,7 +6,7 @@ class Card(object):
         self.isFaceUp = False
 
     def __str__(self):
-        if self.isFaceUp :
+        if self.isFaceUp:
             display_card = self.rank + ' of ' + self.suit
         else:
             display_card = "Card face down"

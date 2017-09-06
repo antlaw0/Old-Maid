@@ -20,7 +20,7 @@ class Deck(object):
     def deal(self, hand, quantity = 1):
         while quantity > 0:
             if len(self.deck) > 0:
-                card = self.deck.popitem()
+                card = self.deck.popitem()[1]
                 quantity -= 1
                 hand.adding(card)
             else:
