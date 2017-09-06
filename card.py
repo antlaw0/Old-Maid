@@ -33,10 +33,10 @@ class Hand(object):
     def clear(self):
         ## Im clearing all cards from hand
         self.cards = []
-    def adding(self, card):
+    def add(self, card):
         self.cards.append(card)
 
-    def giving(self, card, otherHand):
+    def give(self, card, otherHand):
         # A distributing method
         self.cards.remove(card)
         otherHand.add(card)

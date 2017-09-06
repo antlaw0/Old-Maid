@@ -13,6 +13,7 @@ computer = Player.Player("AI", cHand)
 #print(computer.hand)
 #print(human.hand)
 loop = True
+
 human.find_pairs()
 print("before:")
 print(human.hand)
