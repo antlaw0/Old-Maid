@@ -29,14 +29,15 @@ class Player(object):
 		
 		
 		
-		
 		i=0
-		for c in self.hand.cards:
-			i=self.hand.cards.index(c)
-			for cc in pairs_list:
+		for c in pairs_list:
+			for cc in self.hand.cards:
+				i=self.hand.cards.index(cc)
 				if c.rank == cc.rank and c.suit == cc.suit:
 					self.hand.cards.pop(i)
+					
 		
+					
 		"""
 		for card in self.hand.cards:
 			for card2 in self.hand.cards:
