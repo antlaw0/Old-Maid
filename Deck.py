@@ -42,9 +42,10 @@ class Deck(object):
             a=self.deck.popitem()#this returns a tuple.  we only want the second item in the tuple,
             # which is the value from the key value pair we took out of the dictionary.
             #so...
-            return a[1]
+            if a:
+                return a[1]
 
-        #this method works much better for actually playing a game
+        #this method works much better for actually randomizing the deck
 
 #        print("cards left ", self.getCardsLeft())
 #        while self.getCardsLeft() >0:
