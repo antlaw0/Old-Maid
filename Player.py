@@ -19,15 +19,23 @@ class Player(object):
 #						self.pairs.append(i)
 #						self.hand.cards.remove(i)
 #						self.hand.cards.remove(ii)
+	def pairsInc(self):
+		self.pairs=self.pairs+1
+
 
 
 	def find_pairs(self):				#this method compares each card in the hand to every other card to look for matches and increments pairs when it finds one
-		for i in self.hand.cards:
-			for ii in self.hand.cards:
-				if (i.getRank == ii.getRank) & (i !=ii) : #compare each card's rank with every other card in the hand's rank and make pair if rank matches and card doesn't (ie not the same card)
-					self.pairs =self.pairs+1
-					self.hand.remove(i) #remove first half of pair
-					self.hand.remove(ii) #remove second half of pair
+		for i in self.hand:
+			print("i is a ",type(i), " and it's value is, ",i)
+			print("i's rank is:", i.getRank)
+			for ii in self.hand:
+				#print("ii is a ",type(ii), " and it's value is ",ii)
+				if (i.getRank() == ii.getRank()) & (i !=ii) : #compare each card's rank with every other card in the hand's rank and make pair if rank matches and card doesn't (ie not the same card)
+					#self.pairs =self.pairs+1
+					self.pairsInc()
+					self.hand.pop(i) #remove first half of pair TODO This line and next are trying to use value as key. needs to be fixed
+					self.hand.pop(ii) #remove second half of pair
+		print(self.name, " has ", self.pairs)
 
 	def getPairs(self):
 		return self.pairs

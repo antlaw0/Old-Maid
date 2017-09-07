@@ -38,32 +38,32 @@ class Deck(object):
 
     def deal(self): ##This is a bad way to deal a deck.  It does not really randomize the deck at all.
         # If you look at your hand, you have alternate cards with the other player.  Ie you always get the same hand.
-#        if self.cardsLeft() >0:
-#            a=self.deck.popitem()#this returns a tuple.  we only want the second item in the tuple,
+        if self.cardsLeft >0:
+            a=self.deck.popitem()#this returns a tuple.  we only want the second item in the tuple,
             # which is the value from the key value pair we took out of the dictionary.
             #so...
-#            return a[1]
+            return a[1]
 
         #this method works much better for actually playing a game
 
-        print("cards left ", self.getCardsLeft())
-        while self.getCardsLeft() >0:
-            r=random.randint(0, self.getCardsLeft())
-            if r in self.deck:
-                print("cards left ", self.getCardsLeft())
-                card=self.deck[r]
-                del self.deck[r]
-                self.decreaseCardsLeft()
-                return card
-            elif r+1 in self.deck:
-                print("cards left ", self.getCardsLeft())
-                card=self.deck[r+1]
-                del self.deck[r+1]
-                self.decreaseCardsLeft()
-                return card
-            elif r-1 in self.deck:
-                print("cards left ", self.getCardsLeft())
-                card=self.deck[r-1]
-                del self.deck[r-1]
-                self.decreaseCardsLeft()
-                return card
+#        print("cards left ", self.getCardsLeft())
+#        while self.getCardsLeft() >0:
+#            r=random.randint(0, self.getCardsLeft())
+#            if r in self.deck:
+#                print("cards left ", self.getCardsLeft())
+#                card=self.deck[r]
+#                del self.deck[r]
+#                self.decreaseCardsLeft()
+#                return card
+#            elif r+1 in self.deck:
+#                print("cards left ", self.getCardsLeft())
+#                card=self.deck[r+1]
+#                del self.deck[r+1]
+#                self.decreaseCardsLeft()
+#                return card
+#            elif r-1 in self.deck:
+#                print("cards left ", self.getCardsLeft())
+#                card=self.deck[r-1]
+#                del self.deck[r-1]
+#                self.decreaseCardsLeft()
+#                return card

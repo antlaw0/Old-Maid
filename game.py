@@ -33,7 +33,8 @@ deck=Deck.Deck()
 def humanTurn(human, computer,c):
     #code for human's turn
     print(human.name, ", it's your turn.")
-    print("Your hand is", human.showHand())
+    print("Your hand is: ")
+    human.showHand()
     if c==0: #only ask this on the first turn.
         input("Type any key to automatically find all matches in your hand, remove them, and add them to your score.")
         human.find_pairs()
@@ -44,9 +45,10 @@ def humanTurn(human, computer,c):
         cIndex=(int(cardInd))-1
         card=computer.hand.cards[cIndex]
         computer.hand.giving(computer.hand, card, human.hand)
-    print("Now your hand contains:", human.hand)
+    print("Now your hand contains:")
+    human.showHand()
     #the following line should have data validation added.
-    match=int(input("If you have a pair, please type a to play your pair.  If you do not have a pair, type enter to pass your turn."))
+    match=input("If you have a pair, please type a to play your pair.  If you do not have a pair, type enter to pass your turn.")
     if match == 'a':
         human.find_pairs()
         print("You have ",human.getPairs(), " pairs so far.")
@@ -77,19 +79,19 @@ def main1():
         #hand1 = Hand.Hand
         #hand2 = Hand.Hand
         last = "h2"
-        while deck.getCardsLeft()>0:
-            if deck.getCardsLeft():
-                #for i in range(53):
-                c = deck.deal()
-                print("c is a ", type(c))
-                if last == "h2":
+        #while deck.cardsLeft()>0:
+        #    if deck.cardsLeft():
+        for i in range(53):
+            c = deck.deal()
+            #print("c is a ", type(c))
+            if last == "h2":
     #                hand1.adding(hand1,c)
-                    hand1.append(c)
-                    last = "h1"
-                elif last=="h1":
+                hand1.append(c)
+                last = "h1"
+            elif last=="h1":
     #                hand2.adding(hand2,c)
-                    hand2.append(c)
-                    last = "h2"
+                hand2.append(c)
+                last = "h2"
         computer = Player.Player("Computer", hand2)
         human = Player.Player(name, hand1)
 
