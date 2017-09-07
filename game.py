@@ -6,7 +6,7 @@ deck.populate()
 deck.shuffle()
 hHand = Card.Hand()
 cHand = Card.Hand()
-deck.deal([hHand, cHand], 20)
+deck.deal([hHand, cHand], 25)
 
 human = Player.Player("Human", hHand)
 computer = Player.Player("AI", cHand)
