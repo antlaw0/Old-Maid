@@ -3,7 +3,7 @@ class Card(object):
     RANKS = {"Ace", "2", "3", "4", "5",
              "6", "7", "8", "9",
              "10", "Jack", "Queen", "King"}
-    SUITS = {"Clubs", "Diamonds", "Hearts", "Spades"}
+    SUITS = {"Club", "Diamond", "Hearts", "Spades"}
     def __init__(self, rank, suits, isFaceUpd = True):
         self.rank = rank
         self.suit = suits
@@ -41,28 +41,29 @@ class Hand(object):
         self.cards.remove(card)
         otherHand.add(card)
 class Deck(Hand):
-	""" A deck of playing cards. """
+    """ A deck of playing cards. """
 
-	def populate(self):
-		for suit in Card.SUITS:
-			for rank in Card.RANKS:
-				self.add(Card(rank, suit))
-		self.add(Card("Old", "Maid"))
+    def populate(self):
+        for suit in Card.SUITS:
+            for rank in Card.RANKS:
+                self.add(Card(rank, suit))
+        self.add(Card('Old', 'maid'))
 
-	def shuffle(self):
-		"""A method tha shuffle the deck of cards"""
-		import random
-		random.shuffle(self.cards)
+    def shuffle(self):
+        """A method tha shuffle the deck of cards"""
+        import random
+        random.shuffle(self.cards)
 
-	def deal(self, hands, card_per_hand=1):
-		"""A method that deal the cards to the hand. It accepts the list of hand and cards per hand """
-		for rounds in range(card_per_hand):
-			for hand in hands:
-				if self.cards:
-					top_card = self.cards[0]
-					self.give(top_card, hand)
-				else:
-					print("Can't continue deal. Out of cards!")
+    def deal(self, hands, card_per_hand=1):
+        """A method that deal the cards to the hand. It accepts the list of hand and cards per hand """
+        for rounds in range(card_per_hand):
+            for hand in hands:
+                if self.cards:
+                    top_card = self.cards[0]
+                    self.give(top_card, hand)
+                else:
+                    print("Can't continue deal. Out of cards!")
+
 
 
 

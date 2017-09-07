@@ -1,3 +1,4 @@
+import random
 class Player(object):
 	
 	def show_pairs(self):
@@ -18,16 +19,10 @@ class Player(object):
 		for card in original_cards:
 			for card2 in original_cards:
 				if card.suit != card2.suit and card.rank == card2.rank:
-					print("pairs found:")
-					print(card)
-					print(card2)
 					pairs_list.append(card)
 					pairs_list.append(card2)
 					self.pairs.append(card)
 					self.pairs.append(card2)
-					
-		
-		
 		
 		i=0
 		for c in pairs_list:
@@ -36,15 +31,8 @@ class Player(object):
 				if c.rank == cc.rank and c.suit == cc.suit:
 					self.hand.cards.pop(i)
 					
+	def get_random_card(self):
+		r = random.randint(0,len(self.hand.cards)-1)
+		c = self.hand.cards[r]
+		return c
 		
-					
-		"""
-		for card in self.hand.cards:
-			for card2 in self.hand.cards:
-				if card != card2:
-					if card.rank == card2.rank:
-						pair = [card, card2]
-						self.pairs.append(pair)
-						self.hand.cards.remove(card)
-						self.hand.cards.remove(card2)
-"""
